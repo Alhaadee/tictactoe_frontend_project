@@ -5,10 +5,6 @@ const Game = ({game, makeMove}) => {
 
 
 
-
-
-
-
 return (
     <div className="board">
         <Grid className = "top-left" makeMove = {makeMove} game = {game}/>

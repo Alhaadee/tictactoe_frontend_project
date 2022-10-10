@@ -35,14 +35,25 @@ const GameContainer = () => {
 
 
     // patch to update game status 
-        const makeMove =  async (playerArrayListPosition,gameId,gridPosition) => {
-            const response = await fetch(` http://localhost:8080/games/${playerArrayListPosition}/${gameId}/${gridPosition}`, {
+        const makeMove =  async (gameId,gridPosition) => {
+            if(player1Turn){
+                var playerPosition = 0;
+        }   else {
+                playerPosition = 1;
+            };
+        
+        const response = await fetch(`http://localhost:8080/games/${playerPosition}/${gameId}/${gridPosition}`, {
                 method: "PATCH",
                 headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(playerArrayListPosition,gameId,gridPosition)
+                body: JSON.stringify(gameId,gridPosition)
             });
+
             const updatedGame = await response.json();
             setGame(updatedGame)
+        }
+            setPlayer1Turn(!player1Turn)
+            
+
             // const updatedGames = games.map((game)=>{
             //     if (game.id === updatedGame.id){
             //         return updatedGame;
@@ -51,7 +62,7 @@ const GameContainer = () => {
             //     }
             // })
             // setGames(updatedGames);
-        }
+        
 
     return (
         <div className="main_container">
@@ -64,10 +75,10 @@ const GameContainer = () => {
 
 
         </div>
+    )
+}
 
 
-    );
-    }
 
 
 export default GameContainer;
