@@ -1,5 +1,5 @@
 
-const Grid = () => {
+const Grid = ({game}) => {
 
 }
 

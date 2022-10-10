@@ -1,5 +1,5 @@
 
-const Form = () => {
+const Form = ({postPlayer}) => {
 
 }
 

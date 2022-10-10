@@ -1,6 +1,6 @@
 
 
-const Game = () => {
+const Game = ({game}) => {
 
 }
 
