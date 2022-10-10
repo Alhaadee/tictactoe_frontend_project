@@ -39,8 +39,9 @@ const Grid = ({game, makeMove, className}) => {
             makeMove(1,8)
         }
         console.log(game.board);
+        
     }
-
+    
 
     return(
         <div className="squares" onClick = {handleClicking}>

@@ -35,6 +35,7 @@ const GameContainer = () => {
 
 
     // patch to update game status 
+        
         const makeMove =  async (gameId,gridPosition) => {
             if(player1Turn){
                 var playerPosition = 0;
@@ -50,9 +51,9 @@ const GameContainer = () => {
 
             const updatedGame = await response.json();
             setGame(updatedGame)
-        }
+        
             setPlayer1Turn(!player1Turn)
-            
+        } 
 
             // const updatedGames = games.map((game)=>{
             //     if (game.id === updatedGame.id){
