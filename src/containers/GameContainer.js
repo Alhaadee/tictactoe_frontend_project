@@ -33,7 +33,22 @@ const GameContainer = () => {
 
 
     // patch to update game status 
-    
+        const makeMove =  async (playerArrayListPosition,gameId,gridPosition) => {
+            const response = await fetch(` http://localhost:8080/games/${playerArrayListPosition}/${gameId}/${gridPosition}`, {
+                method: "PATCH",
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(playerArrayListPosition,gameId,gridPosition)
+            });
+            const updatedGame = await response.json();
+            const updatedGames = games.map((game)=>{
+                if (game.id === updatedGame.id){
+                    return updatedGame;
+                } else {
+                    return game;
+                }
+            })
+            setGames(updatedGames);
+        }
 
     return (
         <div className="main_container">
