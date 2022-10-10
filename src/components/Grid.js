@@ -42,12 +42,14 @@ const Grid = ({game, makeMove, className, player1Turn}) => {
         player1Turn ? setIcon("X"):setIcon("O") 
         
     }
-    
+
 
     return(
         <div className="squares" onClick = {handleClick}>
          {icon}
+        
         </div>
+
     )
 
 }
