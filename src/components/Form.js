@@ -2,15 +2,22 @@ import { useState } from "react";
 
 const Form = ({addPlayer}) => {
 
-    const [playerName,setPlayerName] = useState("");
+    const [statePlayer,setStatePlayer] = useState({
+        name: ""
+    });
 
-    const handleChange = (input) => {
-        setPlayerName(input.target.value)
+    const handleChange = (event) => {
+        let copiedPlayer = {...statePlayer}
+        copiedPlayer.name = event.target.value
+        setStatePlayer(copiedPlayer);
     }
 
     const handleForm = (event) => {
         event.preventDefault();
-        addPlayer(playerName)
+        addPlayer(statePlayer);
+        setStatePlayer({
+            name: ""
+        });
     }
 
     return (
@@ -23,7 +30,7 @@ const Form = ({addPlayer}) => {
                 placeholder="Player Name"
                 name="name"
                 onChange={handleChange}
-                value={playerName}
+                value={statePlayer.name}
             />
 
             <button type="submit">Add</button>

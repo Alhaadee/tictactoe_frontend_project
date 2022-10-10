@@ -8,11 +8,11 @@ const GameContainer = () => {
     const [games, setGames] = useState({});
     
     // post player
-    const addPlayer = async (playerName) => {
-        const response = await fetch("http://localhost:8080/players?name="+ playerName, {
+    const addPlayer = async (player) => {
+        const response = await fetch(`http://localhost:8080/players?name=${player.name}` , {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(playerName)
+            body: JSON.stringify(player)
         });
         const savedPlayer = await response.json();
         setPlayers([...players, savedPlayer]);
