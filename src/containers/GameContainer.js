@@ -1,10 +1,11 @@
 import { useState } from "react";
+import Form from "../components/Form";
 
 
 const GameContainer = () => {
     const [players, setPlayers] = useState([]);
     const [player1Turn, setPlayer1Turn] = useState(true);
-    const [games, setGames] = useState([]);
+    const [games, setGames] = useState({});
     
     // post player
     const addPlayer = async (playerName) => {
@@ -26,7 +27,7 @@ const GameContainer = () => {
             body: JSON.stringify(playerId)
         })
         const savedGame = await response.json();
-        setGames([...games, savedGame]);
+        setGames(savedGame);
     }
 
       // connect to game
@@ -40,18 +41,21 @@ const GameContainer = () => {
                 body: JSON.stringify(playerArrayListPosition,gameId,gridPosition)
             });
             const updatedGame = await response.json();
-            const updatedGames = games.map((game)=>{
-                if (game.id === updatedGame.id){
-                    return updatedGame;
-                } else {
-                    return game;
-                }
-            })
-            setGames(updatedGames);
+            setGames(updatedGame)
+            // const updatedGames = games.map((game)=>{
+            //     if (game.id === updatedGame.id){
+            //         return updatedGame;
+            //     } else {
+            //         return game;
+            //     }
+            // })
+            // setGames(updatedGames);
         }
 
     return (
         <div className="main_container">
+            <h1>Game container</h1>
+            <Form addPlayer = {addPlayer}/>
             
 
 
