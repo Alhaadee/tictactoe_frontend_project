@@ -1,21 +1,19 @@
+import { useState } from "react";
 
-const Grid = ({game, makeMove, className}) => {
+const Grid = ({game, makeMove, className, player1Turn}) => {
+
+    const [icon,setIcon]=useState("");
+
 
     const handleClick = () => {
-        if(className === "top-right"){
-            makeMove(0,1,2)
-            console.log("hello");
-            console.log(game.board);
-        } 
-    }
-
-    const handleClicking = () => {
         switch(className){
             case "top-left":
             makeMove(1,0)
+            
             break;
             case "top-middle":
-            makeMove(1,1)   
+            makeMove(1,1)
+  
             break;
             case "top-right":
             makeMove(1,2)
@@ -28,6 +26,7 @@ const Grid = ({game, makeMove, className}) => {
             break;
             case "middle-right":
             makeMove(1,5)
+
             break;
             case "bottom-left":
             makeMove(1,6)
@@ -37,15 +36,17 @@ const Grid = ({game, makeMove, className}) => {
             break;
             case "bottom-right":
             makeMove(1,8)
+         
         }
         console.log(game.board);
+        player1Turn ? setIcon("X"):setIcon("O") 
         
     }
     
 
     return(
-        <div className="squares" onClick = {handleClicking}>
-         1
+        <div className="squares" onClick = {handleClick}>
+         {icon}
         </div>
     )
 
