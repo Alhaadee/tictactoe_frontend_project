@@ -1,11 +1,12 @@
 import { useState } from "react";
 import Form from "../components/Form";
+import Game from "../components/Game";
 
 
 const GameContainer = () => {
     const [players, setPlayers] = useState([]);
     const [player1Turn, setPlayer1Turn] = useState(true);
-    const [games, setGames] = useState({});
+    const [game, setGame] = useState({});
     
     // post player
     const addPlayer = async (player) => {
@@ -20,14 +21,14 @@ const GameContainer = () => {
     // post request to start new game
   
 
-    const postGame = async (playerId) => {
-        const response = await fetch("http://localhost:8080/games/start?player1Id=" + playerId, {
+    const postGame = async () => {
+        const response = await fetch(`http://localhost:8080/games/start?player1Id=1`, {
             method: "POST",
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(playerId)
+            body: JSON.stringify()
         })
         const savedGame = await response.json();
-        setGames(savedGame);
+        setGame(savedGame);
     }
 
       // connect to game
@@ -41,7 +42,7 @@ const GameContainer = () => {
                 body: JSON.stringify(playerArrayListPosition,gameId,gridPosition)
             });
             const updatedGame = await response.json();
-            setGames(updatedGame)
+            setGame(updatedGame)
             // const updatedGames = games.map((game)=>{
             //     if (game.id === updatedGame.id){
             //         return updatedGame;
@@ -56,7 +57,10 @@ const GameContainer = () => {
         <div className="main_container">
             <h1>Game container</h1>
             <Form addPlayer = {addPlayer}/>
-            
+            <button onClick={postGame}>Start New Game</button>
+            <br />
+            <Game game={game} makeMove = {makeMove} />
+        
 
 
         </div>

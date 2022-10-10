@@ -1,1 +1,17 @@
 
+.squares{
+    border-width: 1 px;
+    border-color: rgb(119, 176, 128);
+    border-style: solid;
+    background-color: white;
+    padding: 100px;
+
+}
+
+.board {
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: white;
+    padding: 10px;
+
+}
