@@ -40,7 +40,7 @@ const GameContainer = () => {
             if(player1Turn){
                 var playerPosition = 0;
         }   else {
-                playerPosition = 1;
+                var playerPosition = 1;
             };
 
         let gameNumber = games.length;
@@ -77,7 +77,8 @@ const GameContainer = () => {
             <Form addPlayer = {addPlayer}/>
             <button onClick={postGame}>Start New Game</button>
             <br />
-            <Game game={games[(games.length)-1]} makeMove = {makeMove} player1Turn = {player1Turn}/>
+
+            {games.length >= 1 ? <Game game={games[(games.length)-1]} makeMove = {makeMove} player1Turn = {player1Turn}/> : <div></div>}
         
 
 
