@@ -67,7 +67,7 @@ const GameContainer = () => {
 
     return (
         <div className="main_container">
-            <h1>Game container</h1>
+            <h1>Tic Tac Toe</h1>
             <Form addPlayer = {addPlayer}/>
             <button onClick={postGame}>Start New Game</button>
             <br />
