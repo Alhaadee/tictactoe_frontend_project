@@ -40,7 +40,7 @@ const GameContainer = () => {
             if(player1Turn){
                 var playerPosition = 0;
         }   else {
-                var playerPosition = 1;
+                 playerPosition = 1;
             };
 
         let gameNumber = games.length;
@@ -52,8 +52,6 @@ const GameContainer = () => {
             });
 
             const updatedGame = await response.json();
-            // setGame(updatedGame)
-
             const updatedGames = games.map((game)=>{
                 if (game.id === updatedGame.id){
                     return updatedGame;
@@ -62,14 +60,8 @@ const GameContainer = () => {
                 }
             })
             setGames(updatedGames);
-        
             setPlayer1Turn(!player1Turn)
-        } 
-
-      
-
-
-        
+        }    
 
     return (
         <div className="main_container">
@@ -77,11 +69,9 @@ const GameContainer = () => {
             <Form addPlayer = {addPlayer}/>
             <button onClick={postGame}>Start New Game</button>
             <br />
-
-            {games.length >= 1 ? <Game game={games[(games.length)-1]} makeMove = {makeMove} player1Turn = {player1Turn}/> : <div></div>}
-        
-
-
+            {games.length >=1 ? <Game game={games[(games.length)-1]} makeMove = {makeMove} player1Turn = {player1Turn}/>:
+            <div></div>
+            }
         </div>
     )
 }

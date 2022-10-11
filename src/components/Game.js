@@ -9,7 +9,6 @@ return (
     <div>
         { game.winner === "X" ? <h2>player 1 wins</h2> : <div></div> }
         { game.winner === "O" ? <h2>player 2 wins</h2> : <div></div> }
-        {console.log(game)}
     </div>
     <div className="board">
         <Grid className = "top-left" makeMove = {makeMove} game = {game} player1Turn={player1Turn} />

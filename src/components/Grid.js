@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import bones from "../assets/bones_icon.jpg";
 import pumpkin from "../assets/pumpkin_icon.jpeg";
 
@@ -8,6 +8,15 @@ const Grid = ({game, makeMove, className, player1Turn}) => {
     const [icon,setIcon]=useState(null);
     const [clicked,setClicked]=useState(false);
 
+    const wipeGrid = () => {
+            setClicked(false)
+            setIcon(null)
+        }
+    
+
+    useEffect(()=>{
+        wipeGrid();
+    },[game.id])
 
     const handleClick = () => {
         
@@ -41,13 +50,12 @@ const Grid = ({game, makeMove, className, player1Turn}) => {
             case "bottom-middle":
             makeMove(7)
             break;
-            case "bottom-right":
+            default:
             makeMove(8)
             }
             
             player1Turn ? setIcon( <img className="icon" src={bones} alt="crossed bones"/>):setIcon( <img className="icon" src={pumpkin} alt="pumpkin"/>) 
-        }
-       
+        } 
 
     }
 
