@@ -4,7 +4,9 @@
     border-color: rgb(119, 176, 128);
     border-style: solid;
     background-color: white;
-    padding: 100px;
+    padding: 0;
+    width: 200px;
+    height: 200px;
 
 }
 
@@ -14,4 +16,13 @@
     background-color: white;
     padding: 10px;
 
+}
+
+.icon{
+  width: 200px;
+  height: 200px;
+}
+
+#crossbones{
+  margin-bottom:-10px ;
 }

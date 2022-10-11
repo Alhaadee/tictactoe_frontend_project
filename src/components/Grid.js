@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const Grid = ({game, makeMove, className, player1Turn}) => {
 
-    const [icon,setIcon]=useState("");
+    const [icon,setIcon]=useState(null);
     const [clicked,setClicked]=useState(false);
 
 
@@ -41,13 +41,13 @@ const Grid = ({game, makeMove, className, player1Turn}) => {
          
         }
         console.log(game.board);
-        player1Turn ? setIcon("X"):setIcon("O") 
-        
-    }
+        player1Turn ? setIcon(<img className="icon" id="crossbones" src="https://tinyurl.com/nhhb8wt7" alt="crossed bones"/> ):setIcon(<img className="icon" src="https://tinyurl.com/4mry4zky" alt="pumpkin"/> ) 
 
+    }
+ 
 
     return(
-        clicked ? <div className="squares" > {icon}</div> :  <div className="squares" onClick = {handleClick} >{icon}</div> 
+        clicked ? <div className="squares" >{icon} </div> :  <div className="squares" onClick = {handleClick} ></div> 
     )
 
 }
