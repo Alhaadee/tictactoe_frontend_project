@@ -55,6 +55,20 @@ const GameContainer = () => {
             setPlayer1Turn(!player1Turn)
         } 
 
+        const checkWinner = ()=>{
+            console.log(game.winner);
+            
+            if(game.winner==="X"){
+                return (
+                "X"
+                )
+            }else if(game.winner==="O"){
+                return (
+                "O"
+                )
+            }
+        }
+
             // const updatedGames = games.map((game)=>{
             //     if (game.id === updatedGame.id){
             //         return updatedGame;
@@ -63,6 +77,7 @@ const GameContainer = () => {
             //     }
             // })
             // setGames(updatedGames);
+
         
 
     return (
@@ -71,7 +86,7 @@ const GameContainer = () => {
             <Form addPlayer = {addPlayer}/>
             <button onClick={postGame}>Start New Game</button>
             <br />
-            <Game game={game} makeMove = {makeMove} player1Turn={player1Turn}/>
+            <Game game={game} makeMove = {makeMove} player1Turn={player1Turn} checkWinner = {checkWinner}/>
         
 
 

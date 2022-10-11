@@ -3,7 +3,7 @@ import bones from "../assets/bones_icon.jpg";
 import pumpkin from "../assets/pumpkin_icon.jpeg";
 
 
-const Grid = ({game, makeMove, className, player1Turn}) => {
+const Grid = ({game, makeMove, className, player1Turn, checkWinner}) => {
 
     const [icon,setIcon]=useState(null);
     const [clicked,setClicked]=useState(false);
@@ -11,6 +11,7 @@ const Grid = ({game, makeMove, className, player1Turn}) => {
 
     const handleClick = () => {
         setClicked(true)
+        checkWinner()
         switch(className){
             case "top-left":
             makeMove(1,0)
@@ -44,13 +45,14 @@ const Grid = ({game, makeMove, className, player1Turn}) => {
          
         }
         console.log(game.board);
-        player1Turn ? setIcon(<img className="icon" src={bones} alt="crossed bones"/> ):setIcon(<img className="icon" src={pumpkin} alt="pumpkin"/> ) 
+        player1Turn ? setIcon( <img className="icon" src={bones} alt="crossed bones"/>):setIcon( <img className="icon" src={pumpkin} alt="pumpkin"/>) 
 
     }
- 
+
 
     return(
-        clicked ? <div className="squares" >{icon} </div> :  <div className="squares" onClick = {handleClick} ></div> 
+        clicked ? <div className="squares" >{icon} </div> :  <div className="squares" onClick = {handleClick} ></div>
+
     )
 
 }
