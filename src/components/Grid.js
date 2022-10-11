@@ -3,7 +3,7 @@ import bones from "../assets/bones_icon.jpg";
 import pumpkin from "../assets/pumpkin_icon.jpeg";
 
 
-const Grid = ({game, makeMove, className, player1Turn, checkWinner}) => {
+const Grid = ({game, makeMove, className, player1Turn}) => {
 
     const [icon,setIcon]=useState(null);
     const [clicked,setClicked]=useState(false);
@@ -11,7 +11,6 @@ const Grid = ({game, makeMove, className, player1Turn, checkWinner}) => {
 
     const handleClick = () => {
         setClicked(true)
-        checkWinner()
         switch(className){
             case "top-left":
             makeMove(1,0)
