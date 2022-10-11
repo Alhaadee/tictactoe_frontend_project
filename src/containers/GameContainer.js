@@ -31,7 +31,7 @@ const GameContainer = () => {
         setGame(savedGame);
     }
 
-      // connect to game
+    // connect to game
 
 
     // patch to update game status 
@@ -74,7 +74,8 @@ const GameContainer = () => {
             <Form addPlayer = {addPlayer}/>
             <button onClick={postGame}>Start New Game</button>
             <br />
-            <Game game={game} makeMove = {makeMove} player1Turn={player1Turn}/>
+            {game.winner ? <Game game={game} player1Turn={player1Turn}/> : 
+            <Game game={game} makeMove = {makeMove} player1Turn={player1Turn}/>}
         
 
 
