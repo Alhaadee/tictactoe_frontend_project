@@ -41,7 +41,7 @@ const Grid = ({game, makeMove, className, player1Turn}) => {
          
         }
         console.log(game.board);
-        player1Turn ? setIcon(<img className="icon" id="crossbones" src="https://tinyurl.com/nhhb8wt7" alt="crossed bones"/> ):setIcon(<img className="icon" src="https://tinyurl.com/4mry4zky" alt="pumpkin"/> ) 
+        player1Turn ? setIcon(<img className="icon" src="./assets/bones_icon.jpg" alt="crossed bones"/> ):setIcon(<img className="icon" src="./assets/pumpkin_icon.jpeg" alt="pumpkin"/> ) 
 
     }
  
