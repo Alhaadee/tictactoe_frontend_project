@@ -6,7 +6,7 @@ import Game from "../components/Game";
 const GameContainer = () => {
     const [players, setPlayers] = useState([]);
     const [player1Turn, setPlayer1Turn] = useState(true);
-    const [game, setGame] = useState({});
+    const [games, setGames] = useState([]);
     
     // post player
     const addPlayer = async (player) => {
@@ -28,7 +28,7 @@ const GameContainer = () => {
             body: JSON.stringify()
         })
         const savedGame = await response.json();
-        setGame(savedGame);
+        setGames([...games,savedGame]);
     }
 
     // connect to game
@@ -36,35 +36,38 @@ const GameContainer = () => {
 
     // patch to update game status 
         
-        const makeMove =  async (gameId,gridPosition) => {
+        const makeMove =  async (gridPosition) => {
             if(player1Turn){
                 var playerPosition = 0;
         }   else {
                 playerPosition = 1;
             };
+
+        let gameNumber = games.length;
         
-        const response = await fetch(`http://localhost:8080/games/${playerPosition}/${gameId}/${gridPosition}`, {
+        const response = await fetch(`http://localhost:8080/games/${playerPosition}/${gameNumber}/${gridPosition}`, {
                 method: "PATCH",
                 headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(gameId,gridPosition)
+                body: JSON.stringify(gridPosition)
             });
 
             const updatedGame = await response.json();
-            setGame(updatedGame)
+            // setGame(updatedGame)
+
+            const updatedGames = games.map((game)=>{
+                if (game.id === updatedGame.id){
+                    return updatedGame;
+                } else {
+                    return game;
+                }
+            })
+            setGames(updatedGames);
         
             setPlayer1Turn(!player1Turn)
         } 
 
       
 
-            // const updatedGames = games.map((game)=>{
-            //     if (game.id === updatedGame.id){
-            //         return updatedGame;
-            //     } else {
-            //         return game;
-            //     }
-            // })
-            // setGames(updatedGames);
 
         
 
@@ -74,7 +77,7 @@ const GameContainer = () => {
             <Form addPlayer = {addPlayer}/>
             <button onClick={postGame}>Start New Game</button>
             <br />
-            <Game game={game} makeMove = {makeMove} player1Turn = {player1Turn}/>
+            <Game game={games[(games.length)-1]} makeMove = {makeMove} player1Turn = {player1Turn}/>
         
 
 
