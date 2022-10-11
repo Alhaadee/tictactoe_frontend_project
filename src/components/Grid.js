@@ -10,6 +10,8 @@ const Grid = ({game, makeMove, className, player1Turn}) => {
 
 
     const handleClick = () => {
+        
+        if(!game.winner){
         setClicked(true)
         switch(className){
             case "top-left":
@@ -41,10 +43,12 @@ const Grid = ({game, makeMove, className, player1Turn}) => {
             break;
             case "bottom-right":
             makeMove(1,8)
-         
+            }
+            
+            player1Turn ? setIcon( <img className="icon" src={bones} alt="crossed bones"/>):setIcon( <img className="icon" src={pumpkin} alt="pumpkin"/>) 
         }
         console.log(game.board);
-        player1Turn ? setIcon( <img className="icon" src={bones} alt="crossed bones"/>):setIcon( <img className="icon" src={pumpkin} alt="pumpkin"/>) 
+       
 
     }
 

@@ -74,8 +74,7 @@ const GameContainer = () => {
             <Form addPlayer = {addPlayer}/>
             <button onClick={postGame}>Start New Game</button>
             <br />
-            {game.winner ? <Game game={game} player1Turn={player1Turn}/> : 
-            <Game game={game} makeMove = {makeMove} player1Turn={player1Turn}/>}
+            <Game game={game} makeMove = {makeMove} player1Turn = {player1Turn}/>
         
 
 
