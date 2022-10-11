@@ -3,9 +3,11 @@ import { useState } from "react";
 const Grid = ({game, makeMove, className, player1Turn}) => {
 
     const [icon,setIcon]=useState("");
+    const [clicked,setClicked]=useState(false);
 
 
     const handleClick = () => {
+        setClicked(true)
         switch(className){
             case "top-left":
             makeMove(1,0)
@@ -45,11 +47,7 @@ const Grid = ({game, makeMove, className, player1Turn}) => {
 
 
     return(
-        <div className="squares" onClick = {handleClick}>
-         {icon}
-        
-        </div>
-
+        clicked ? <div className="squares" > {icon}</div> :  <div className="squares" onClick = {handleClick} >{icon}</div> 
     )
 
 }
