@@ -13,7 +13,7 @@ const Grid = ({game, makeMove, className, player1Turn}) => {
             setIcon(null)
         }
     
-
+     // returns to its original state if the game ID changes
     useEffect(()=>{
         wipeGrid();
     },[game.id])
