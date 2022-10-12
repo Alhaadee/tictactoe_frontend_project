@@ -72,6 +72,12 @@ const GameContainer = () => {
             setGames(updatedGames);
             setPlayer1Turn(!player1Turn)
         }    
+        const displayTurn=()=>{
+            if(player1Turn){
+            return <h3>{player1.name}'s turn</h3>}{
+                return <h3>{player2.name}'s turn</h3>
+            }
+        }
 
     return (
         <div className="main_container">
@@ -82,6 +88,7 @@ const GameContainer = () => {
            <div></div>}
             <button onClick={postGame}>Start New Game</button>
             <br />
+            {player1.name ? displayTurn():<div></div> }
             {games.length >=1 ? <Game game={games[(games.length)-1]} makeMove = {makeMove} player1Turn = {player1Turn} player2={player2} player1={player1}/>:
             <div></div>
             }
