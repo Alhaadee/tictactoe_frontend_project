@@ -86,7 +86,7 @@ const GameContainer = () => {
             <br />
            {player1.name && player2.name ? <h3>{player1.name} and {player2.name} have joined the game</h3>: 
            <div></div>}
-            <button onClick={postGame}>Start New Game</button>
+            <button className="start_button" onClick={postGame}>Start New Game</button>
             <br />
             {player1.name ? displayTurn():<div></div> }
             {games.length >=1 ? <Game game={games[(games.length)-1]} makeMove = {makeMove} player1Turn = {player1Turn} player2={player2} player1={player1}/>:

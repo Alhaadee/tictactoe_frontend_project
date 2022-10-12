@@ -3,23 +3,34 @@ body{
   background-color: black;
   color: white;
   text-align: center;
+  font-family:  Helvetica, Arial, sans-serif;
 }
 
 h1{
-  font-size: 60px;
-  font-family:  Helvetica, Arial, sans-serif;
-  text-shadow: 5px 3px 7px red;
+  font-size: 70px;
+  text-shadow: 5px 3px 7px darkorange;
 }
 
 .form{
   margin: 30px;
+  font-size: 20px;
+}
+
+button{
+  font-size: 20px;
+  background-color: darkgoldenrod;
 }
 
 button:hover{
-  background-color: darkred;
+  background-color: darkorange;
   color: white;
 }
 
+.start_button{
+  height: 30px;
+  margin-bottom: 15px;
+  font-size: large;
+}
   
 .squares{
     border-width: 1 px;
