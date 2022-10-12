@@ -33,8 +33,10 @@ const Form = ({addPlayer1name,addPlayer2name,addPlayer}) => {
 
     return (
     <div>
-        <form onSubmit={handleForm}>
-            <h3>Add A New Player</h3>
+        
+        <form onSubmit={handleForm} className="form">
+            <h3 className="addPlayerText">Add A New Player</h3>
+           
             <label htmlFor="name">Player 1: </label>
             <input 
                 type="text"
@@ -43,6 +45,7 @@ const Form = ({addPlayer1name,addPlayer2name,addPlayer}) => {
                 onChange={handleChange}
                 value={statePlayer.name}
             />
+          
             <label htmlFor="name">Player 2: </label>
             <input 
                 type="text"
@@ -51,7 +54,7 @@ const Form = ({addPlayer1name,addPlayer2name,addPlayer}) => {
                 onChange={handlePlayer2}
                 value={statePlayer2}
             />
-
+           
             <button type="submit">Add</button>
       
         </form>
