@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import bones from "../assets/bones_icon.jpg";
-import pumpkin from "../assets/pumpkin_icon.jpeg";
+import bones from "../assets/bones_icon.png";
+import pumpkin from "../assets/pumpkin_icon.png";
 
 
 const Grid = ({game, makeMove, className, player1Turn}) => {
