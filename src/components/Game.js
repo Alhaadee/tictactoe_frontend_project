@@ -1,14 +1,14 @@
 import Grid from "./Grid"
 
 
-const Game = ({game, makeMove, player1Turn}) => {
+const Game = ({game, makeMove, player1Turn,player2, player1}) => {
 
 
 return (
     <>
     <div>
-        { game.winner === "X" ? <h2>player 1 wins</h2> : <div></div> }
-        { game.winner === "O" ? <h2>player 2 wins</h2> : <div></div> }
+        { game.winner === "X" ? <h2>{player1.name} wins</h2> : <div></div> }
+        { game.winner === "O" ? <h2>{player2.name} wins</h2> : <div></div> }
     </div>
     <div className="board">
         <Grid className = "top-left" makeMove = {makeMove} game = {game} player1Turn={player1Turn} />

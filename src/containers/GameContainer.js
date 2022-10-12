@@ -7,6 +7,16 @@ const GameContainer = () => {
     const [players, setPlayers] = useState([]);
     const [player1Turn, setPlayer1Turn] = useState(true);
     const [games, setGames] = useState([]);
+    const [player1,setPlayer1]=useState({name:""})
+    const [player2,setPlayer2]=useState({name:""})
+
+    const addPlayer1name=(formData)=>{
+        setPlayer1({name: formData})
+    }
+    const addPlayer2name=(formData)=>{
+        setPlayer2({name: formData})
+    }
+
     
     // post player
     const addPlayer = async (player) => {
@@ -66,10 +76,10 @@ const GameContainer = () => {
     return (
         <div className="main_container">
             <h1>Tic Tac Toe</h1>
-            <Form addPlayer = {addPlayer}/>
+            <Form addPlayer = {addPlayer} addPlayer2name={addPlayer2name} addPlayer1name={addPlayer1name}/>
             <button onClick={postGame}>Start New Game</button>
             <br />
-            {games.length >=1 ? <Game game={games[(games.length)-1]} makeMove = {makeMove} player1Turn = {player1Turn}/>:
+            {games.length >=1 ? <Game game={games[(games.length)-1]} makeMove = {makeMove} player1Turn = {player1Turn} player2={player2} player1={player1}/>:
             <div></div>
             }
         </div>
