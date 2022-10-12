@@ -20,7 +20,7 @@ const GameContainer = () => {
   // post player
   const addPlayer = async (player) => {
     const response = await fetch(
-      `http://localhost:8080/players?name=${player.name}`,
+      `http://localhost:8080/players?name=${player}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -54,7 +54,7 @@ const GameContainer = () => {
       playerPosition = 1;
     }
 
-    let gameNumber = games.length;
+    let gameNumber = games[games.length -1].id;
 
     const response = await fetch(
       `http://localhost:8080/games/${playerPosition}/${gameNumber}/${gridPosition}`,
