@@ -10,6 +10,8 @@ const Form = ({addPlayer1name,addPlayer2name,addPlayer}) => {
         let copiedPlayer = {...statePlayer}
         copiedPlayer.name = event.target.value
         setStatePlayer(copiedPlayer);
+        const updatedPlayer1 = event.target.value
+        setStatePlayer1(updatedPlayer1);
     }
     const handlePlayer2 = (event) => {
         
@@ -17,21 +19,16 @@ const Form = ({addPlayer1name,addPlayer2name,addPlayer}) => {
         setStatePlayer2(updatedPlayer2);
         console.log(statePlayer2);
     }
-    const handlePlayer1 = (event) => {
-        
-        const updatedPlayer1 = event.target.value
-        setStatePlayer1(updatedPlayer1);
-        console.log(statePlayer1);
-    }
 
     const handleForm = (event) => {
         event.preventDefault();
         addPlayer(statePlayer1);
-        setStatePlayer1(statePlayer.name);
+        // setStatePlayer1(statePlayer.name);
         addPlayer1name(statePlayer1);
         addPlayer2name(statePlayer2)
         setStatePlayer1("");
-        setStatePlayer2("")
+        setStatePlayer2("");
+        setStatePlayer({name:""});
     }
 
     return (
@@ -56,6 +53,7 @@ const Form = ({addPlayer1name,addPlayer2name,addPlayer}) => {
             />
 
             <button type="submit">Add</button>
+      
         </form>
     </div>
 
