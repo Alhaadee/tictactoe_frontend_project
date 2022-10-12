@@ -1,9 +1,16 @@
 
+body{
+  background-color: black;
+  color: white;
+}
+  
+
+
 .squares{
     border-width: 1 px;
-    border-color: rgb(119, 176, 128);
+    border-color: orange;
     border-style: solid;
-    background-color: white;
+    background-color: black;
     padding: 0;
     width: 200px;
     height: 200px;
@@ -13,7 +20,7 @@
 .board {
     display: inline-grid;
     grid-template-columns: 1fr 1fr 1fr;
-    background-color: white;
+    background-color: black;
     padding: 10px;
 
 }
