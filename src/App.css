@@ -2,10 +2,25 @@
 body{
   background-color: black;
   color: white;
+  text-align: center;
 }
+
+h1{
+  font-size: 60px;
+  font-family:  Helvetica, Arial, sans-serif;
+  text-shadow: 5px 3px 7px red;
+}
+
+.form{
+  margin: 30px;
+}
+
+button:hover{
+  background-color: darkred;
+  color: white;
+}
+
   
-
-
 .squares{
     border-width: 1 px;
     border-color: orange;
@@ -16,6 +31,7 @@ body{
     height: 200px;
 
 }
+
 
 .board {
     display: inline-grid;
