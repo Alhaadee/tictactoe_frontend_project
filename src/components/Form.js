@@ -35,7 +35,8 @@ const Form = ({ addPlayer1name, addPlayer2name, addPlayer }) => {
         <h3 className="addPlayerText">Add Players to Start</h3>
         <div className="labelContainer">
           <div className="labels">
-            <label htmlFor="name">Player 1: </label>
+            <label htmlFor="name">Player 1:</label>
+            &nbsp;
             <input
               type="text"
               placeholder="Name"
@@ -46,7 +47,8 @@ const Form = ({ addPlayer1name, addPlayer2name, addPlayer }) => {
           </div>
 
           <div className="labels">
-            <label htmlFor="name">Player 2: </label>
+            <label htmlFor="name">Player 2:</label>
+            &nbsp;
             <input
               type="text"
               placeholder="Name"

@@ -141,7 +141,7 @@ const GameContainer = () => {
       <br />
       {player1.name && player2.name ? (
         <h3 className="displayNames">
-          {player1.name} &nbsp; <img className="bonesImg" src={bones_cursor} alt="crossed bones" /> &nbsp; &nbsp; vs &nbsp; &nbsp; {player2.name} &nbsp; <img className="pumpkinImg" src={pumpkin_cursor} alt="pumpkin" />
+          {player1.name}  <img className="bonesImg" src={bones_cursor} alt="crossed bones" /> &nbsp; &nbsp; vs &nbsp; &nbsp; {player2.name}  <img className="pumpkinImg" src={pumpkin_cursor} alt="pumpkin" />
         </h3>
       ) : (
         <div></div>
