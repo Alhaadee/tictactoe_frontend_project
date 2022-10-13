@@ -160,7 +160,7 @@ const GameContainer = () => {
       ) : (
         <div></div>
       )}
-      <h2>
+      <h2 className="scoreboard">
         Score: &nbsp; {score[0]}:{score[1]}
       </h2>
     </div>

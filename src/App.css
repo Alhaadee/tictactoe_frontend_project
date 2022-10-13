@@ -40,6 +40,11 @@ button:hover{
     
 }
 
+.scoreboard {
+  font-weight: bolder;
+  font-size: 40px;
+}
+
 .top-middle,
 .middle-middle,
 .bottom-middle {
