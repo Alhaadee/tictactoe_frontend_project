@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import bones from "../assets/bones_icon.png";
 import pumpkin from "../assets/pumpkin_icon.png";
+import bonesAudio from '../sounds/bone-cracking.mp3';
+import pumpkinAudio from '../sounds/thump.mp3';
 
 const Grid = ({ game, makeMove, className, player1Turn }) => {
   const [icon, setIcon] = useState(null);
@@ -15,6 +17,28 @@ const Grid = ({ game, makeMove, className, player1Turn }) => {
   useEffect(() => {
     wipeGrid();
   }, [game.id]);
+
+  // icons
+  const bonesIcon = () => {
+    setIcon(<img className='icon' src={bones} alt='crossed bones' />)
+  }
+  const pumpkinIcon = () => {
+    setIcon(<img className='icon' src={pumpkin} alt='pumpkin' />)
+  }
+
+
+  //icon sounds
+  const bonesSound = () => {
+    let bonesClip = new Audio(bonesAudio)
+    bonesClip.play()
+    bonesClip.volume = 0.15
+  }
+  const pumpkinSound = () => {
+    let pumpkinClip = new Audio(pumpkinAudio)
+    pumpkinClip.play()
+    pumpkinClip.volume = 0.15
+  }
+
 
   const handleClick = () => {
     if (!game.winner) {
@@ -51,9 +75,8 @@ const Grid = ({ game, makeMove, className, player1Turn }) => {
           makeMove(8);
       }
 
-      player1Turn
-        ? setIcon(<img className="icon" src={bones} alt="crossed bones" />)
-        : setIcon(<img className="icon" src={pumpkin} alt="pumpkin" />);
+      player1Turn ? bonesIcon() : pumpkinIcon();
+        player1Turn ? bonesSound() : pumpkinSound();
     }
   };
 
