@@ -34,7 +34,7 @@ const Form = ({ addPlayer1name, addPlayer2name, addPlayer }) => {
       <form onSubmit={handleForm} className="form">
         <h3 className="addPlayerText">Add Players to Start</h3>
         <div className="labelContainer">
-          <div>
+          <div className="labels">
             <label htmlFor="name">Player 1: </label>
             <input
               type="text"
@@ -45,7 +45,7 @@ const Form = ({ addPlayer1name, addPlayer2name, addPlayer }) => {
             />
           </div>
 
-          <div>
+          <div className="labels">
             <label htmlFor="name">Player 2: </label>
             <input
               type="text"

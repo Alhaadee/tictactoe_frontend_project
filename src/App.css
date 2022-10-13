@@ -24,6 +24,8 @@ h1{
   font-size: 25px;
 }
 
+
+
 button{
   font-size: 25px;
   font-family: 'Metal Mania', cursive;
@@ -134,7 +136,7 @@ button:hover{
 
 .form{
   color: orange;
- 
+  
   justify-content: space-around;
 }
 
@@ -150,4 +152,19 @@ button:hover{
 .displayNames{
   margin-top:0px;
   font-size: 30px;
+}
+
+
+
+/* .labels {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: black;
+  align-items: center;
+  padding: 2px;
+
+} */
+
+label {
+  background-color: black;
 }
