@@ -106,6 +106,13 @@ const GameContainer = () => {
     // flip the turn to the other player
     setPlayer1Turn(!player1Turn);
   };
+
+  // reset score on name change
+  useEffect(()=>{
+    setScore([0,0]);
+  },[player1])
+
+
   // determines which player's turn it is
   const displayTurn = () => {
     if (player1Turn) {
