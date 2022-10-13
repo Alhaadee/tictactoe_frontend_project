@@ -116,9 +116,9 @@ const GameContainer = () => {
   // determines which player's turn it is
   const displayTurn = () => {
     if (player1Turn) {
-      return <h3>{player1.name}'s turn</h3>;
+      return <h3 className="turn">{player1.name}'s turn</h3>;
     } else {
-      return <h3>{player2.name}'s turn</h3>;
+      return <h3 className="turn">{player2.name}'s turn</h3>;
     }
   };
 

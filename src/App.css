@@ -3,21 +3,30 @@ body{
   background-color: black;
   color: white;
   text-align: center;
-  font-family:  Helvetica, Arial, sans-serif;
+  /* font-family:  Helvetica, Arial, sans-serif; */
+  font-family: 'Metal Mania', cursive;
+  letter-spacing: 3px;
+
 }
 
 h1{
   font-size: 70px;
-  text-shadow: 5px 3px 7px darkorange;
+  text-shadow: 10px 3px 7px orange;
+  color: rgb(248, 231, 200);
+  font-family: 'Metal Mania', cursive;
+  letter-spacing: 10px;
+
+  
 }
 
 .form{
   margin-top: 30px;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 button{
-  font-size: 20px;
+  font-size: 25px;
+  font-family: 'Metal Mania', cursive;
   background-color: orange;
   border-radius: 8px;
   size:40px;
@@ -29,10 +38,14 @@ button:hover{
 }
 
 .start_button{
-  height: 30px;
-  margin-bottom: 15px;
-  font-size: large;
+  font-size: 25px;
   border-radius: 8px;
+  size:40px;
+
+}
+
+.turn {
+  font-size: 30px;
 }
   
 .squares{
@@ -136,4 +149,5 @@ button:hover{
 }
 .displayNames{
   margin-top:0px;
+  font-size: 30px;
 }
