@@ -24,8 +24,8 @@ const GameContainer = () => {
 
 
     window.addEventListener("mousemove", (event)=>{
-        setCursorX(event.pageX)
-        setCursorY(event.pageY)
+        setCursorX(event.pageX-16)
+        setCursorY(event.pageY-16)
     })
 
   const addPlayer1name = (formData) => {
