@@ -20,7 +20,7 @@ const GameContainer = () => {
     if(player1Turn && games.length>=1) { setCursorImg(`url(${bones_cursor})`)}
     else if (!player1Turn&& games.length>=1){ setCursorImg(`url(${pumpkin_cursor})`)}
     
-  })
+  },[player1Turn])
 
 
     window.addEventListener("mousemove", (event)=>{
@@ -146,7 +146,7 @@ const GameContainer = () => {
       ) : (
         <div></div>
       )}
-      <button className="start_button" onClick={postGame}>Start New Game</button>
+      {player1.name ? <button className="start_button" onClick={postGame}>Start New Game</button> : <div></div>}
       <br />
       {games.length >= 1 ? (
         <Game
@@ -160,9 +160,10 @@ const GameContainer = () => {
       ) : (
         <div></div>
       )}
-      <h2>
-        Score: &nbsp; {score[0]}:{score[1]}
-      </h2>
+      {
+        games.length >=1 ?       <h2 className="scoreboard"> Score: &nbsp; {score[0]}:{score[1]}</h2> : <div></div>
+
+      }
     </div>
   );
 };
