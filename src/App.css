@@ -1,6 +1,6 @@
 
 body{
-  background: url("./assets/cat-pumpkin.png") no-repeat top right fixed, url("./assets/bat.png") no-repeat fixed black;
+  background: url("./assets/cat-pumpkin.png") no-repeat top right, url("./assets/bat.png") no-repeat black;
   color: white;
   text-align: center;
   /* font-family:  Helvetica, Arial, sans-serif; */
