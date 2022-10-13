@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import bones from "../assets/bones_icon.png";
 import pumpkin from "../assets/pumpkin_icon.png";
-import bonesAudio from '../sounds/bone-cracking.mp3';
-import pumpkinAudio from '../sounds/thump.mp3';
+import bonesClip from '../sounds/bone-cracking.mp3';
+import pumpkinClip from '../sounds/thump.mp3';
 
 const Grid = ({ game, makeMove, className, player1Turn }) => {
   const [icon, setIcon] = useState(null);
@@ -29,14 +29,14 @@ const Grid = ({ game, makeMove, className, player1Turn }) => {
 
   //icon sounds
   const bonesSound = () => {
-    let bonesClip = new Audio(bonesAudio)
-    bonesClip.play()
-    bonesClip.volume = 0.15
+    let bonesAudio = new Audio(bonesClip)
+    bonesAudio.play()
+    bonesAudio.volume = 0.15
   }
   const pumpkinSound = () => {
-    let pumpkinClip = new Audio(pumpkinAudio)
-    pumpkinClip.play()
-    pumpkinClip.volume = 0.15
+    let pumpkinAudio = new Audio(pumpkinClip)
+    pumpkinAudio.play()
+    pumpkinAudio.volume = 0.15
   }
 
 
