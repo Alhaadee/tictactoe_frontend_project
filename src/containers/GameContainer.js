@@ -20,7 +20,7 @@ const GameContainer = () => {
     if(player1Turn && games.length>=1) { setCursorImg(`url(${bones_cursor})`)}
     else if (!player1Turn&& games.length>=1){ setCursorImg(`url(${pumpkin_cursor})`)}
     
-  })
+  },[player1Turn])
 
 
     window.addEventListener("mousemove", (event)=>{
@@ -116,9 +116,9 @@ const GameContainer = () => {
   // determines which player's turn it is
   const displayTurn = () => {
     if (player1Turn) {
-      return <h3>{player1.name}'s turn</h3>;
+      return <h3 className="turn">{player1.name}'s turn</h3>;
     } else {
-      return <h3>{player2.name}'s turn</h3>;
+      return <h3 className="turn">{player2.name}'s turn</h3>;
     }
   };
 
@@ -140,13 +140,13 @@ const GameContainer = () => {
       />
       <br />
       {player1.name && player2.name ? (
-        <h3>
-          {player1.name} and {player2.name} have joined the game
+        <h3 className="displayNames">
+          {player1.name} &nbsp; <img className="bonesImg" src={bones_cursor} alt="crossed bones" /> &nbsp; &nbsp; vs &nbsp; &nbsp; {player2.name} &nbsp; <img className="pumpkinImg" src={pumpkin_cursor} alt="pumpkin" />
         </h3>
       ) : (
         <div></div>
       )}
-      <button className="start_button" onClick={postGame}>Start New Game</button>
+      {player1.name ? <button className="start_button" onClick={postGame}>Start New Game</button> : <div></div>}
       <br />
       {games.length >= 1 ? (
         <Game
@@ -160,9 +160,10 @@ const GameContainer = () => {
       ) : (
         <div></div>
       )}
-      <h2>
-        Score: &nbsp; {score[0]}:{score[1]}
-      </h2>
+      {
+        games.length >=1 ?       <h2 className="scoreboard"> Score: &nbsp; {score[0]}:{score[1]}</h2> : <div></div>
+
+      }
     </div>
   );
 };
