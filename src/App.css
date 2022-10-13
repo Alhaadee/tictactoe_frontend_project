@@ -47,16 +47,16 @@ button:hover{
 .top-middle,
 .middle-middle,
 .bottom-middle {
-    border-left: 10px solid orange;
-    border-right: 10px solid orange;
+    border-left: 8px solid orange;
+    border-right: 8px solid orange;
 
 }
 
 .middle-left,
 .middle-middle,
 .middle-right {
-    border-top: 10px solid orange;
-    border-bottom:10px solid orange
+    border-top: 8px solid orange;
+    border-bottom: 8px solid orange
 }
 
 
