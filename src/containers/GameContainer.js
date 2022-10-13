@@ -12,8 +12,6 @@ const GameContainer = () => {
   const [player1, setPlayer1] = useState({ name: "" });
   const [player2, setPlayer2] = useState({ name: "" });
   const [score, setScore] = useState([0, 0]);
-  const [cursorX,setCursorX]=useState();
-  const [cursorY,setCursorY]=useState();
   const [cursorImg,setCursorImg]=useState(`url(${skull})`);
 
   useEffect(()=>{
@@ -22,11 +20,6 @@ const GameContainer = () => {
     
   },[player1Turn])
 
-
-    window.addEventListener("mousemove", (event)=>{
-        setCursorX(event.pageX-16)
-        setCursorY(event.pageY-16)
-    })
 
   const addPlayer1name = (formData) => {
     setPlayer1({ name: formData });
@@ -123,20 +116,20 @@ const GameContainer = () => {
   };
 
   return (
-    <div className="main_container">
-        <div className="cursor"
-        style={{
-            left: cursorX+'px',
-            top: cursorY+'px',
-            backgroundImage: cursorImg
-        }}
-        
-        ></div>
+    <div className="main_container" 
+    style={{
+      height: "100vh",
+      width: "100vw",
+      cursor: `${cursorImg},auto`
+
+    }}>
+     
       <h1>Tic Tac Toe</h1>
       <Form
         addPlayer={addPlayer}
         addPlayer2name={addPlayer2name}
         addPlayer1name={addPlayer1name}
+        cursorImg={cursorImg}
       />
       <br />
       {player1.name && player2.name ? (
@@ -146,7 +139,7 @@ const GameContainer = () => {
       ) : (
         <div></div>
       )}
-      {player1.name ? <button className="start_button" onClick={postGame}>Start New Game</button> : <div></div>}
+      {player1.name ? <button className="start_button" onClick={postGame} style={{cursor: `${cursorImg},auto`}}>Start New Game</button> : <div></div>}
       <br />
       {games.length >= 1 ? (
         <Game

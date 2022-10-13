@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Form = ({ addPlayer1name, addPlayer2name, addPlayer }) => {
+const Form = ({ addPlayer1name, addPlayer2name, addPlayer, cursorImg }) => {
   const [statePlayer1, setStatePlayer1] = useState("");
   const [statePlayer2, setStatePlayer2] = useState("");
   const [statePlayer, setStatePlayer] = useState({ name: "" });
@@ -15,7 +15,6 @@ const Form = ({ addPlayer1name, addPlayer2name, addPlayer }) => {
   const handlePlayer2 = (event) => {
     const updatedPlayer2 = event.target.value;
     setStatePlayer2(updatedPlayer2);
-    console.log(statePlayer2);
   };
 
   const handleForm = (event) => {
@@ -61,7 +60,7 @@ const Form = ({ addPlayer1name, addPlayer2name, addPlayer }) => {
 
         <br></br>
 
-        <button type="submit">Submit Names</button>
+        <button type="submit" style={{cursor: `${cursorImg},auto`}}>Submit Names</button>
       </form>
     </div>
   );
