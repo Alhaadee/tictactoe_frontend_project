@@ -37,6 +37,10 @@ button:hover{
     padding: 0;
     width: 15vmin;
     height: 15vmin;
+    margin-top: 20px;
+    justify-content: center;
+    
+    
     
 }
 
@@ -48,15 +52,16 @@ button:hover{
 .top-middle,
 .middle-middle,
 .bottom-middle {
-    border-left: 5px solid orange;
-    border-right: 5px solid orange;
+    border-left: 8px solid orange;
+    border-right: 8px solid orange;
+
 }
 
 .middle-left,
 .middle-middle,
 .middle-right {
-    border-top: 5px solid orange;
-    border-bottom:5px solid orange
+    border-top: 8px solid orange;
+    border-bottom: 8px solid orange
 }
 
 
@@ -69,10 +74,30 @@ button:hover{
 
 }
 
+/* @keyframes fadeIn {
+    from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+} */
+
+@keyframes grow-and-shrink {
+    0% {
+        transform: scale(0)
+    }
+    100% {
+        transform: scale(1)
+    }
+}
 
 .icon{
-    width: 15vmin;
-    height: 15vmin;
+    width: 11vmin;
+    height: 11vmin;
+    animation-name: grow-and-shrink;
+    animation-duration: 0.5s;
+   
 
 }
 
