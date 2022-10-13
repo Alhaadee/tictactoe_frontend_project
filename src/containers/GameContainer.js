@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Form from "../components/Form";
 import Game from "../components/Game";
+import skull from "../assets/skull_cursor.png";
+import pumpkin_cursor from "../assets/pumpkin_cursor.png";
+import bones_cursor from "../assets/bones_cursor.png";
 
 const GameContainer = () => {
   const [players, setPlayers] = useState([]);
@@ -9,6 +12,21 @@ const GameContainer = () => {
   const [player1, setPlayer1] = useState({ name: "" });
   const [player2, setPlayer2] = useState({ name: "" });
   const [score, setScore] = useState([0, 0]);
+  const [cursorX,setCursorX]=useState();
+  const [cursorY,setCursorY]=useState();
+  const [cursorImg,setCursorImg]=useState(`url(${skull})`);
+
+  useEffect(()=>{
+    if(player1Turn && games.length>=1) { setCursorImg(`url(${bones_cursor})`)}
+    else if (!player1Turn&& games.length>=1){ setCursorImg(`url(${pumpkin_cursor})`)}
+    
+  })
+
+
+    window.addEventListener("mousemove", (event)=>{
+        setCursorX(event.pageX)
+        setCursorY(event.pageY)
+    })
 
   const addPlayer1name = (formData) => {
     setPlayer1({ name: formData });
@@ -99,6 +117,14 @@ const GameContainer = () => {
 
   return (
     <div className="main_container">
+        <div className="cursor"
+        style={{
+            left: cursorX+'px',
+            top: cursorY+'px',
+            backgroundImage: cursorImg
+        }}
+        
+        ></div>
       <h1>Tic Tac Toe</h1>
       <Form
         addPlayer={addPlayer}
