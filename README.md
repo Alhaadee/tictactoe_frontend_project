@@ -19,3 +19,8 @@ This project is a webpage for a TicTacToe game built using react and a locally h
 
 
 
+## Preview
+
+![Screenshot of page](Screenshot1.png)
+
+![Screenshot2 of page](Screenshot2.png)
